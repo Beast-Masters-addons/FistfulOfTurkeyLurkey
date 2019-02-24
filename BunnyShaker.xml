@@ -1,0 +1,73 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+<Frame name="BunnyMakerTooltip" hidden="true" toplevel="true" frameStrata="HIGH" enableMouse="true" movable="true" parent="UIParent" clampedToScreen="true">
+        <Size x="200" y="50"/>
+        <Anchors>
+            <Anchor point="CENTER" />
+        </Anchors>
+		<Backdrop edgeFile="Interface\Tooltips\UI-Tooltip-Border" bgFile="Interface\Tooltips\UI-Tooltip-Background">
+			<BackgroundInsets>
+				<AbsInset left="4" right="4" top="4" bottom="4" />
+			</BackgroundInsets>
+			<EdgeSize>
+				<AbsValue val="16" />
+			</EdgeSize>
+			<Color r="0" g="0" b="0" a="0.8" />
+			<BorderColor r="1" g="1" b="0" a="1" />
+		</Backdrop>
+		<Layers>
+			<Layer>
+				<Texture name="$parent_RaceIcon">
+					<Size>
+						<AbsDimension x="32" y="32"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="9" y="-9"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+				<FontString name="$parent_RaceText" inherits="GameFontWhite">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="50" y="-12"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parent_BuffText" inherits="GameFontWhite">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="50" y="-24"/>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+        <Scripts>
+			<OnLoad>
+				bunny_progress()
+			</OnLoad>
+            <OnMouseDown>
+                if ( button == "LeftButton" ) then
+                    self:StartMoving();
+                    self.isMoving = true;
+                end
+            </OnMouseDown>
+            <OnMouseUp>
+                if ( self.isMoving ) then
+                    self:StopMovingOrSizing();
+                    self.isMoving = false;
+                end
+            </OnMouseUp>    
+            <OnHide>
+                if ( self.isMoving ) then
+                    self:StopMovingOrSizing();
+                    self.isMoving = false;
+                end
+            </OnHide>
+        </Scripts>
+    </Frame>
+</Ui>

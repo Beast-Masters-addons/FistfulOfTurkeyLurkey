@@ -1,0 +1,9 @@
+## Interface: 80100
+## Title: BunnyShaker
+## Author: datagutten
+## Version: 0.1
+## Notes: A helper addon for the achievement "Shake Your Bunny-Maker"
+## DefaultState: Enabled
+## LoadOnDemand: 0
+BunnyShaker.lua
+BunnyShaker.xml
