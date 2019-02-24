@@ -47,9 +47,6 @@
 			</Layer>
 		</Layers>
         <Scripts>
-			<OnLoad>
-				bunny_progress()
-			</OnLoad>
             <OnMouseDown>
                 if ( button == "LeftButton" ) then
                     self:StartMoving();

@@ -1,6 +1,6 @@
 local EventFrame = CreateFrame("Frame")
 EventFrame:RegisterEvent('PLAYER_TARGET_CHANGED')
-EventFrame:RegisterEvent('VARIABLES_LOADED')
+EventFrame:RegisterEvent('ADDON_LOADED')
 --https://us.battle.net/forums/en/wow/topic/3595346852
 EventFrame:RegisterEvent('UPDATE_MOUSEOVER_UNIT')
 
@@ -61,7 +61,6 @@ function gender_check(UnitId)
     if not UnitIsPlayer(UnitId) then
         return
     end
-    --TODO: Check if unit is allied race (UnitAlliedRaceInfo)
     local gender = UnitSex(UnitId)
     local race = UnitRace(UnitId)
     local level = UnitLevel(UnitId)
@@ -92,5 +91,7 @@ EventFrame:SetScript("OnEvent", function(self, event,...)
         if not UnitIsPlayer("target") then
             gender_check("mouseover")
         end
+    elseif event == 'ADDON_LOADED' then
+        bunny_progress()
     end
 end)
