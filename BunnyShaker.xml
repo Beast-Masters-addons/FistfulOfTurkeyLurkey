@@ -1,7 +1,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
-<Frame name="BunnyMakerTooltip" hidden="true" toplevel="true" frameStrata="HIGH" enableMouse="true" movable="true" parent="UIParent" clampedToScreen="true">
+<Frame name="BunnyMakerTooltip" hidden="true" toplevel="true" frameStrata="LOW" enableMouse="true" movable="true" parent="UIParent" clampedToScreen="true">
         <Size x="200" y="50"/>
         <Anchors>
             <Anchor point="CENTER" />
