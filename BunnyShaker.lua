@@ -49,6 +49,9 @@ function bunny_progress()
 end
 
 function race_image(race, gender)
+    if race == 'Undead' then -- Images for undead are named scourge
+        race = 'Scourge'
+    end
     return string.format("Interface/CHARACTERFRAME/TEMPORARYPORTRAIT-%s-%s.PNG",gender, race:gsub(' ', ''))
 end
 
