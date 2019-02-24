@@ -63,6 +63,10 @@ function gender_check(UnitId)
     end
     local gender = UnitSex(UnitId)
     local race = UnitRace(UnitId)
+    --Race is not an objective or is completed
+    if completed_classes[race] ~= false then
+        return
+    end
     local level = UnitLevel(UnitId)
 
     -- DEFAULT_CHAT_FRAME:AddMessage(string.format('Gender: %d Race: %d, Level %d', gender, race, level))
