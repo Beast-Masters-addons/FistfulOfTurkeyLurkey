@@ -5,6 +5,7 @@
 ## Version: @project-version@
 ## Notes: A helper addon for the achievements "Let It Snow", "Fistful of Love", "Shake Your Bunny-Maker", "Check Your Head", and "Turkey Lurkey"
 ## X-Curse-Project-ID: 315740
+## X-WoWI-ID: 26552
 ## X-Wago-ID: ZKxqWoGk
 
 #@no-lib-strip@
