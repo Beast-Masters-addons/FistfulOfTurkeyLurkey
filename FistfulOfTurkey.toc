@@ -1,0 +1,16 @@
+## Interface: 90207
+## Interface-Wrath: 30401
+## Title: Fistful of Turkey Lurkey
+## Author: datagutten
+## Version: @project-version@
+## Notes: A helper addon for the achievements "Let It Snow", "Fistful of Love", "Shake Your Bunny-Maker", "Check Your Head", and "Turkey Lurkey"
+## X-Curse-Project-ID: 315740
+
+#@no-lib-strip@
+libs.xml
+#@end-no-lib-strip@
+
+BunnyShaker.xml
+data\achievements.lua
+data\criteria.lua
+addon\tracker.lua

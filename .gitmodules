@@ -1,0 +1,3 @@
+[submodule "build/build_utils"]
+	path = build/build_utils
+	url = https://github.com/Beast-Masters-addons/build_utils
