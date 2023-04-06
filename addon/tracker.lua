@@ -162,8 +162,8 @@ function addon:need(UnitId)
 
         if raceID == race_iter and classID == class_iter then
             local buffName, buffIcon, duration, expirationTime
-            if self.data['buff'] ~= nil then
-                buffName, buffIcon, duration, expirationTime = self:getBuff(UnitId, self.data['buff'])
+            if self.data['spell'] ~= nil then
+                buffName, buffIcon, duration, expirationTime = self:getBuff(UnitId, self.data['spell'])
                 --@debug@
                 if buffName then
                     print(('%s has buff %s duration %d expiration %d'):format(
