@@ -1,4 +1,4 @@
-## Interface: 90207
+## Interface: 100005
 ## Interface-Wrath: 30401
 ## Title: Fistful of Turkey Lurkey
 ## Author: datagutten
