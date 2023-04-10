@@ -38,7 +38,7 @@ function addon:findEventItem()
     for _, slot in ipairs({ 16, 17 }) do
         for key, event in pairs(fistful_events) do
             local itemID = GetInventoryItemID("player", slot)
-            if itemID == event['item'] then
+            if itemID and itemID == event['item'] then
                 return key
             end
         end
