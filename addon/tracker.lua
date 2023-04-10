@@ -205,7 +205,7 @@ function addon:need(UnitId)
                 end
                 --@end-debug@
             end
-            print(('%s is a %s %s needed for %s'):format(UnitName(UnitId), race, class, self.achievement))
+            print(('%s is a %s needed for %s'):format(UnitName(UnitId), check_string, self.achievement))
             if UnitId ~= "mouseover" then
                 self:show_tooltip(('%s %s'):format(race, class), raceFile, gender, buffName, buffIcon, expirationTime)
             end
