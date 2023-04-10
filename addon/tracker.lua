@@ -10,6 +10,8 @@ local UnitSex, UnitLevel, UnitIsPlayer = _G.UnitSex, _G.UnitLevel, _G.UnitIsPlay
 local unpack = _G.unpack
 local GetTime = _G.GetTime
 local GetAchievementCriteriaInfoByID = _G.GetAchievementCriteriaInfoByID
+local GetAchievementLink = _G.GetAchievementLink
+local GetInventoryItemID = _G.GetInventoryItemID
 
 function addon:hide_tooltip()
     BunnyMakerTooltip:Hide()
@@ -25,6 +27,16 @@ function addon:findEventItem()
                         return key
                     end
                 end
+            end
+        end
+    end
+
+    --Check if the item is equipped
+    for _, slot in ipairs({ 16, 17 }) do
+        for key, event in pairs(fistful_events) do
+            local itemID = GetInventoryItemID("player", slot)
+            if itemID == event['item'] then
+                return key
             end
         end
     end
