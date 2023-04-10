@@ -185,7 +185,7 @@ function addon:need(UnitId)
                 end
                 --@end-debug@
             end
-            print(('Need %s'):format(check_string))
+            print(('%s is a %s %s needed for %s'):format(UnitName(UnitId), race, class, self.achievement))
 
             self:show_tooltip(('%s %s'):format(race, class), raceFile, gender, buffName, buffIcon, expirationTime)
             return
