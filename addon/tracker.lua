@@ -94,14 +94,13 @@ end
 function addon:init(event_key)
     self.data = _G.fistful_achievements[event_key]
     self.data['criteria'] = _G.fistful_criteria[self.data['achievement']]
+    self.achievement = GetAchievementLink(self.data['achievement'])
     self:RegisterEvent("PLAYER_TARGET_CHANGED")
     self:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
     self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
     --self:RegisterEvent(PLAYER_REGEN_ENABLED)
     --self:RegisterEvent(PLAYER_REGEN_DISABLED)
-    --@debug@
-    print(('[%s] Initialized with achievement %s'):format(addonName, event_key))
-    --@end-debug@
+    print(('[%s] Initialized with achievement %s %s'):format(addonName, self.achievement))
 
     self:getNeed()
 end
