@@ -17,6 +17,7 @@ local GetInventoryItemID = _G.GetInventoryItemID
 function addon:hide_tooltip()
     if self.frame then
         AceGUI:Release(self.frame)
+        self.frame = nil
     end
 end
 
@@ -82,6 +83,7 @@ function addon:show_tooltip(text, race, gender, buffName, buffIcon, expirationTi
     local f = self.frame
     f:SetCallback("OnClose", function(widget)
         AceGUI:Release(widget)
+        addon.frame = nil
     end)
     f:SetTitle(self.achievement_name)
     f:SetLayout("Flow")
