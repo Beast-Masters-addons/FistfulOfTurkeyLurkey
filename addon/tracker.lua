@@ -100,7 +100,7 @@ function addon:init(event_key)
     self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
     --self:RegisterEvent(PLAYER_REGEN_ENABLED)
     --self:RegisterEvent(PLAYER_REGEN_DISABLED)
-    print(('[%s] Initialized with achievement %s %s'):format(addonName, self.achievement))
+    print(('[%s] Initialized with achievement %s'):format(addonName, self.achievement))
 
     self:getNeed()
 end
