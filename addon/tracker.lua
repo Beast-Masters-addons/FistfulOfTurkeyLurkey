@@ -1,6 +1,6 @@
 local addonName = ...
 local addon = _G.LibStub("AceAddon-3.0"):NewAddon("FistfulOfLove", "AceEvent-3.0")
-local BunnyMakerTooltip = _G.BunnyMakerTooltip
+local AceGUI = _G.LibStub("AceGUI-3.0")
 local fistful_events = _G.fistful_achievements
 local InCombatLockdown = _G.InCombatLockdown
 local UnitBuff = _G.UnitBuff
@@ -10,11 +10,14 @@ local UnitSex, UnitLevel, UnitIsPlayer = _G.UnitSex, _G.UnitLevel, _G.UnitIsPlay
 local unpack = _G.unpack
 local GetTime = _G.GetTime
 local GetAchievementCriteriaInfoByID = _G.GetAchievementCriteriaInfoByID
+local GetAchievementInfo = _G.GetAchievementInfo
 local GetAchievementLink = _G.GetAchievementLink
 local GetInventoryItemID = _G.GetInventoryItemID
 
 function addon:hide_tooltip()
-    BunnyMakerTooltip:Hide()
+    if self.frame then
+        AceGUI:Release(self.frame)
+    end
 end
 
 function addon:findEventItem()
@@ -75,18 +78,34 @@ function addon:getBuff(unit, find_spellId)
 end
 
 function addon:show_tooltip(text, race, gender, buffName, buffIcon, expirationTime)
-    BunnyMakerTooltip:Show()
+    self.frame = AceGUI:Create("Window")
+    local f = self.frame
+    f:SetCallback("OnClose", function(widget)
+        AceGUI:Release(widget)
+    end)
+    f:SetTitle(self.achievement_name)
+    f:SetLayout("Flow")
+    f:SetHeight(100)
+    f:SetWidth(250)
+    f:EnableResize(false)
 
-    _G.BunnyMakerTooltip_RaceText:SetText(text);
+    local label = AceGUI:Create("Label")
+    label:SetText(text)
+    label:SetImageSize(32, 32)
+    label:SetJustifyH('CENTER')
+    f:AddChild(label)
+
+    local buffText = AceGUI:Create("Label")
+    f:AddChild(buffText)
     if buffIcon then
-        _G.BunnyMakerTooltip_BuffText:SetText(buffName .. " " .. buff_expiry(expirationTime))
-        _G.BunnyMakerTooltip_RaceIcon:SetTexture(buffIcon)
+        buffText:SetText(buffName .. " " .. buff_expiry(expirationTime))
+        label:SetImage(buffIcon)
     else
-        _G.BunnyMakerTooltip_BuffText:SetText()
+        buffText:SetText()
         if gender == 3 then
-            _G.BunnyMakerTooltip_RaceIcon:SetTexture(race_image(race, 'female'))
+            label:SetImage(race_image(race, 'female'))
         elseif gender == 2 then
-            _G.BunnyMakerTooltip_RaceIcon:SetTexture(race_image(race, 'male'))
+            label:SetImage(race_image(race, 'male'))
         end
     end
 end
@@ -95,6 +114,7 @@ function addon:init(event_key)
     self.data = _G.fistful_achievements[event_key]
     self.data['criteria'] = _G.fistful_criteria[self.data['achievement']]
     self.achievement = GetAchievementLink(self.data['achievement'])
+    self.achievement_name = select(2, GetAchievementInfo(self.data['achievement']))
     self:RegisterEvent("PLAYER_TARGET_CHANGED")
     self:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
     self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
@@ -186,8 +206,9 @@ function addon:need(UnitId)
                 --@end-debug@
             end
             print(('%s is a %s %s needed for %s'):format(UnitName(UnitId), race, class, self.achievement))
-
-            self:show_tooltip(('%s %s'):format(race, class), raceFile, gender, buffName, buffIcon, expirationTime)
+            if UnitId ~= "mouseover" then
+                self:show_tooltip(('%s %s'):format(race, class), raceFile, gender, buffName, buffIcon, expirationTime)
+            end
             return
         end
     end
