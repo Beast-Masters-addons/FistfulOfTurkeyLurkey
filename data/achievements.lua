@@ -17,22 +17,27 @@ _G.fistful_achievements = {
         ["class"] = false,
         ["item"] = 45073, --Spring Flowers
         ["item_icon"] = 252129, --inv_misc_roses_01
-    },
+    }, --61734
 
     check_your_head = {
         ["achievement"] = 291, --Check Your Head
         ["spell"] = 44212,
         ["race"] = true,
         ["class"] = false,
-        ["item"] = 34068,
+        ["item"] = 34068, --Weighthed Jack-o'-Lantern
         ["item_icon"] = 133661, --inv_misc_bag_28_halloween
     },
 
     turkey_lurkey = {
+        ["achievement"] = 3559,
+        ["spell"] = 61781, --Turkey Feathers
+        ["race"] = true,
+        ["class"] = true,
+        ["item"] = 44812, --Turkey shooter
+        ["item_icon"] = 135434,
+    }, --3559
 
-    },
-
-    let_it_snow = {
+    let_it_snow = { --TODO: Add item and spell
         ["achievement"] = 1687,
         ["race"] = true,
         ["class"] = true
