@@ -33,13 +33,16 @@ _G.fistful_achievements = {
         ["spell"] = 61781, --Turkey Feathers
         ["race"] = true,
         ["class"] = true,
-        ["item"] = 44812, --Turkey shooter
+        ["item"] = 44812, --Turkey shooter (consumed on use)
         ["item_icon"] = 135434,
     }, --3559
 
-    let_it_snow = { --TODO: Add item and spell
+    let_it_snow = {
         ["achievement"] = 1687,
+        ["spell"] = 44755, --Snowflakes
         ["race"] = true,
-        ["class"] = true
+        ["class"] = true,
+        ["item"] = 34191, --Handful of Snowflakes (consumed on use)
+        ["item_icon"] = 135849
     },
 }
