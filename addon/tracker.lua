@@ -3,7 +3,12 @@ local addon = _G.LibStub("AceAddon-3.0"):NewAddon("FistfulOfLove", "AceEvent-3.0
 local AceGUI = _G.LibStub("AceGUI-3.0")
 local fistful_events = _G.fistful_achievements
 local InCombatLockdown = _G.InCombatLockdown
-local UnitBuff = _G.UnitBuff
+local UnitBuff
+if _G.UnitBuffCustom then
+    UnitBuff = _G.UnitBuffCustom
+else
+    UnitBuff = _G.UnitBuff
+end
 local C_Container = _G.C_Container
 local UnitRace, UnitClass, UnitName = _G.UnitRace, _G.UnitClass, _G.UnitName
 local UnitSex, UnitLevel, UnitIsPlayer = _G.UnitSex, _G.UnitLevel, _G.UnitIsPlayer
