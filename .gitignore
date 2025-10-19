@@ -2,3 +2,5 @@
 /libs
 /.release
 *.csv
+__pycache__
+.env

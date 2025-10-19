@@ -1,0 +1,1 @@
+<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd"><Script file="../data/criteria_wrath.lua" /><Script file="../data/criteria_mists.lua" /><Script file="../data/criteria_retail.lua" /></Ui>

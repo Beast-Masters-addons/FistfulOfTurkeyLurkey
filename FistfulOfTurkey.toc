@@ -1,6 +1,4 @@
-## Interface: 110007
-## Interface-Wrath: 30403
-## Interface-Cata: 40401
+## Interface: 110205, 50501, 40401, 30403
 ## Title: Fistful of Turkey Lurkey
 ## Author: datagutten
 ## Version: @project-version@
@@ -14,5 +12,5 @@ libs.xml
 #@end-no-lib-strip@
 
 data\achievements.lua
-data\criteria.lua
+data\data.xml
 addon\tracker.lua
