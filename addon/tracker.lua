@@ -113,8 +113,17 @@ function addon:show_tooltip(text, race, gender, buffName, buffIcon, expirationTi
 end
 
 function addon:init(event_key)
+    local wow_major = math.floor(tonumber(select(4, _G.GetBuildInfo()) / 10000))
     self.data = _G.fistful_achievements[event_key]
-    self.data['criteria'] = _G.fistful_criteria[self.data['achievement']]
+
+    if wow_major <= 4 then
+        self.data['criteria'] = _G.fistful_criteria_wrath[self.data['achievement']]
+    elseif wow_major < 11 then
+        self.data['criteria'] = _G.fistful_criteria_mists[self.data['achievement']]
+    else
+        self.data['criteria'] = _G.fistful_criteria_retail[self.data['achievement']]
+    end
+
     self.achievement = GetAchievementLink(self.data['achievement'])
     self.achievement_name = select(2, GetAchievementInfo(self.data['achievement']))
     self:RegisterEvent("PLAYER_TARGET_CHANGED")
