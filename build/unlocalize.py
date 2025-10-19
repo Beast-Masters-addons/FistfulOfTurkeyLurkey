@@ -1,15 +1,11 @@
-import csv
-
-
-def load_table(table):
-    with open(table + '.csv') as fp_table:
-        return list(csv.DictReader(fp_table))
+from build_utils.utils.tables.WoWTables import WowTablesCache
 
 
 class Unlocalize:
-    def __init__(self):
-        self.races = load_table('chrraces')
-        self.classes = load_table('chrclasses')
+    def __init__(self, **tables_kwargs):
+        self.tables = WowTablesCache(**tables_kwargs)
+        self.races = self.tables.get_db_table('chrraces')
+        self.classes = self.tables.get_db_table('chrclasses')
 
     def class_exact(self, class_name: str):
         for race in self.races:
