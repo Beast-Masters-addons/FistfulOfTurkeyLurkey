@@ -13,6 +13,14 @@ local GetAchievementCriteriaInfoByID = _G.GetAchievementCriteriaInfoByID
 local GetAchievementInfo = _G.GetAchievementInfo
 local GetAchievementLink = _G.GetAchievementLink
 local GetInventoryItemID = _G.GetInventoryItemID
+local issecretvalue
+if _G.issecretvalue ~= nil then
+    issecretvalue = _G.issecretvalue
+else
+    function issecretvalue(_)
+        return false
+    end
+end
 
 function addon:hide_tooltip()
     if self.frame then
@@ -242,7 +250,7 @@ function addon:CRITERIA_UPDATE()
 end
 
 function addon:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spell)
-    if InCombatLockdown() then
+    if InCombatLockdown() or issecretvalue(spell) then
         return
     end
 
