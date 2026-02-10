@@ -1,4 +1,4 @@
-## Interface: 110205, 50501, 40401, 30403
+## Interface: 120000, 50503, 40401, 30403
 ## Title: Fistful of Turkey Lurkey
 ## Author: datagutten
 ## Version: @project-version@
